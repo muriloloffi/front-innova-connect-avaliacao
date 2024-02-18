@@ -1,7 +1,23 @@
-# Vue 3 + Vite
+# Gym check-in app (Gym Passport)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+### Requisitos de negócio
 
-## Recommended IDE Setup
+* Deve ser possível se cadastrar (Nome, E-mail e Senha);
+* Deve ser possível se autenticar (E-mail e Senha);
+* Deve ser possível cadastrar uma academia (Nome, Descrição, Telefone, Latitude e longitude);
+* Deve ser possível o usuário realizar check-in em uma academia;
+* Deve ser possível obter o perfil de um usuário logado;
+* Deve ser possível o usuário obter o seu histórico de check-ins;
+* Deve ser possível o usuário buscar academias pelo nome;
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### RNs (Regras de negócio)
+
+* O usuário não deve poder se cadastrar com um e-mail duplicado;
+* O usuário não pode fazer 2 check-ins no mesmo dia;
+* A academia só pode ser cadastrada por administradores;
+
+### RNFs (Requisitos não-funcionais)
+
+* <ins>A senha do usuário precisa estar criptografada;✅<ins>
+* <ins>Todas listas de dados precisam estar paginadas com 20 itens por página;✅<ins>
+* O usuário deve ser identificado por um JWT (JSON Web Token);
