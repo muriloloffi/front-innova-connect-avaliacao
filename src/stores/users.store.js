@@ -33,7 +33,7 @@ export const useUsersStore = defineStore({
       }
     },
     async update(id, params) {
-      await fetchWrapper.put(`${baseUrl}/${id}`, params);
+      await fetchWrapper.put(`${baseUrl}/update/${id}`, params);
       
       const authStore = useAuthStore();
       if (id === authStore.user.id) {
