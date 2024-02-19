@@ -38,12 +38,12 @@ async function onSubmit(values) {
         <div class="mb-4">
           <label for="email">Email</label>
           <Field type="text" name="email" :class="{ 'is-invalid': errors.email }" />
-          <div class="hidden mt-1 text-sm text-red" v-show="errors.email">{{ errors.email }}
+          <div class="hidden mt-1 text-sm text-red" v-show="errors.email">{{ errors.email }}</div>
         </div>
         <div class="mb-4">
           <label for="password">Password</label>
           <Field type="password" name="password" :class="{ 'is-invalid': errors.password }" />
-          <div class="hidden mt-1 text-sm text-red" v-show="errors.password">{{ errors.password }}
+          <div class="hidden mt-1 text-sm text-red" v-show="errors.password">{{ errors.password }}</div>
         </div>
         <div class="mb-4">
           <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600" :disabled="isSubmitting">
