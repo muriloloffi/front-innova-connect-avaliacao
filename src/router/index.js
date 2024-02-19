@@ -4,7 +4,7 @@ import { useAuthStore, useAlertStore } from '@/stores';
 import { Home } from '@/templates';
 import authRoutes from './auth.routes';
 import usersRoutes from './users.routes';
-import { apiSignInRoute, apiSignUpRoute } from '@/_helpers/constants';
+import { apiSignInRoute, apiSignUpRoute } from '@/utils/constants';
 
 export const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

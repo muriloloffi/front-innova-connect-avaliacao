@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 
 import { useUsersStore, useAlertStore } from '@/stores';
 import { router } from '@/router';
-import { apiSignInRoute } from '@/_helpers/constants';
+import { apiSignInRoute } from '@/utils/constants';
 
 const schema = Yup.object({
   name: Yup.string().required(),

@@ -2,13 +2,13 @@
 
 ### Requisitos de negócio
 
-* Deve ser possível se cadastrar (Nome, E-mail e Senha);
-* Deve ser possível se autenticar (E-mail e Senha);
-* Deve ser possível cadastrar uma academia (Nome, Descrição, Telefone, Latitude e longitude);
-* Deve ser possível o usuário realizar check-in em uma academia;
-* Deve ser possível obter o perfil de um usuário logado;
-* Deve ser possível o usuário obter o seu histórico de check-ins;
-* Deve ser possível o usuário buscar academias pelo nome;
+* (front) Deve ser possível se cadastrar (Nome, E-mail e Senha);
+* (front) Deve ser possível se autenticar (E-mail e Senha);
+* (front) Deve ser possível cadastrar uma academia (Nome, Descrição, Telefone, Latitude e longitude);
+* (front) Deve ser possível o usuário realizar check-in em uma academia;
+* (front) Deve ser possível obter o perfil de um usuário logado;
+* (front) Deve ser possível o usuário obter o seu histórico de check-ins;
+* (front) Deve ser possível o usuário buscar academias pelo nome;
 
 ### RNs (Regras de negócio)
 
