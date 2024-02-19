@@ -32,15 +32,5 @@ export const useUsersStore = defineStore({
         this.user = { error };
       }
     },
-    async update(id, params) {
-      await fetchWrapper.put(`${baseUrl}/update/${id}`, params);
-      
-      const authStore = useAuthStore();
-      if (id === authStore.user.id) {
-        const user = { ...authStore.user, ...params };
-        localStorage.setItem('user', JSON.stringify(user));
-        authStore.user = user;
-      }
-    },
   }
 })
