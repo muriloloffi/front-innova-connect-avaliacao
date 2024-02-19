@@ -1,0 +1,1 @@
+import { Layout, Login, Register } from '@/templates/auth';
