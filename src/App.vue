@@ -1,30 +1,17 @@
 <script setup>
-import { Form, Field, ErrorMessage } from 'vee-validate';
-import * as yup from 'yup';
+import { Nav, Alert } from '@/components';
+import { useAuthStore } from '@/stores';
 
-const schema = yup.object({
-  name: yup.string().required(),
-  email: yup.string().email().required(),
-  password: yup.string().required(),
-});
-
-function onSubmit(values) {
-  console.log(JSON.stringify(values, null, 2));
-}
+const authStore = useAuthStore();
 </script>
 
 <template>
-  <div id="app">
-    <Form class="flex columns-auto" :validation-schema="schema" @submit="onSubmit">
-      <Field type="email" name="email"/>
-      <ErrorMessage name="email"/>
-      <Field type="text" name="name"/>
-      <ErrorMessage name="name"/>
-      <Field type="password" name="password"/>
-      <ErrorMessage name="password"/>
-
-      <button type="submit">Submit</button>
-    </Form>
+  <div class="app-container" :class="authStore.user && 'bg-gray-100'">
+    <Nav />
+    <Alert />
+    <div class="container mx-auto sm:px-4 pt-4 pb-4">
+      <router-view />
+    </div>
   </div>
 </template>
 
