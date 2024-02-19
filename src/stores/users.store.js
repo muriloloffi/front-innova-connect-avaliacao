@@ -4,6 +4,7 @@ import { fetchWrapper } from '@/helpers';
 import { useAuthStore } from '@/stores';
 
 const baseUrl = `${import.meta.env.VITE_API_URL}/users`;
+const { apiSignUpRoute } = '@/_helpers/constants';
 
 export const useUsersStore = defineStore({
   id: 'users',
@@ -12,8 +13,8 @@ export const useUsersStore = defineStore({
     user: {}
   }),
   actions: {
-    async register(user) {
-      await fetchWrapper.post(`${baseUrl}/register`, user);
+    async signup(user) {
+      await fetchWrapper.post(apiSignUpRoute, user);
     },
     async getAll() {
       this.users = { loading: true };

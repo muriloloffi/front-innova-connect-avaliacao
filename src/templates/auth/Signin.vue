@@ -32,9 +32,11 @@ async function onSubmit() {
         <div class="mb-4">
           <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600" :disabled="isSubmitting">
             <span v-show="isSubmitting">Loading...</span>
-            Login
+            Sign in
           </button>
-          // TODO: Add a link to the registration page
+          <router-link to="signup" class="inline-block align-middle text-center select-none border whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline font-normal text-blue-700 bg-transparent">
+            Sign up
+          </router-link>
         </div>
       </Form>
     </div>

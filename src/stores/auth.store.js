@@ -1,6 +1,10 @@
 import { defineStore } from 'pinia';
 
 import { fetchWrapper } from '@/_helpers';
+import { router } from '@/router';
+import { useAlertStore } from '@/stores';
+
+const baseUrl = `${import.meta.env.VITE_API_URL}/api/auth`;
 
 export const useAuthStore = defineStore({
   id: 'auth',
@@ -11,16 +15,16 @@ export const useAuthStore = defineStore({
   actions: {
     async login(username, password) {
       try {
-        const user = await fetchWrapper.post(`$baseUrl/signin`, { username, password });
+        const user = await fetchWrapper.post(`${baseUrl}/signin`, { username, password });
 
         this.user = user;
 
         localStorage.setItem('user', JSON.stringify(user));
 
-        // TODO: redirect to returnUrl || routing
+        router.push(this.returnUrl || '/');
       } catch (error) {
-        // TODO: display alert
-        console.log(error);
+        const alertStore = useAlertStore();
+        alertStore.error(error);
       }
     }
   },
@@ -28,7 +32,6 @@ export const useAuthStore = defineStore({
     this.user = null;
     localStorage.removeItem('user');
 
-    // TODO: redirect to returnUrl
-
+    router.push('/api/auth/signin');
   }
 });
