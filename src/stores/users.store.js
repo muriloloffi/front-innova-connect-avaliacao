@@ -2,8 +2,9 @@ import { defineStore } from 'pinia';
 
 import { fetchWrapper } from '@/utils';
 
-const baseUrl = `${import.meta.env.VITE_API_URL}/users`;
-const { apiSignUpRoute } = '@/utils/constants';
+import { apiSignUpRoute } from '@/utils';
+
+const baseUrl = `${import.meta.env.VITE_API_URL}`;
 
 export const useUsersStore = defineStore({
   id: 'users',
@@ -13,12 +14,12 @@ export const useUsersStore = defineStore({
   }),
   actions: {
     async signup(user) {
-      await fetchWrapper.post(apiSignUpRoute, user);
+      await fetchWrapper.post(`${baseUrl}${apiSignUpRoute}`, user);
     },
     async getAll() {
       this.users = { loading: true };
       try {
-        this.users = await fetchWrapper.get(baseUrl);
+        this.users = await fetchWrapper.get(`${baseUrl}/users`);
       } catch (error) {
         this.users = { error };
       }
@@ -26,7 +27,7 @@ export const useUsersStore = defineStore({
     async getById(id) {
       this.user = { loading: true };
       try {
-        this.user = await fetchWrapper.get(`${baseUrl}/${id}`);
+        this.user = await fetchWrapper.get(`${baseUrl}/users/${id}`);
       } catch (error) {
         this.user = { error };
       }
