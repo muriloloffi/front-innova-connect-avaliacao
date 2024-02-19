@@ -1,5 +1,11 @@
 # Gym check-in app (Gym Passport)
 
+Application front-end. To check the API and its instructions [click here](https://github.com/muriloloffi/innova-connect-avaliacao).
+
+## Installation
+
+Clone the API and Front-end repositories locally, then run `npm install` and `npm run dev` on both.
+
 ### Requisitos de negócio
 
 * (front) Deve ser possível se cadastrar (Nome, E-mail e Senha);
