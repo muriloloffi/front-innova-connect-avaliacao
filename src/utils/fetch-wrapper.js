@@ -18,6 +18,8 @@ function request(method) {
       requestOptions.headers['Content-Type'] = 'application/json';
       requestOptions.body = JSON.stringify(body);
     }
+    requestOptions.mode = 'cors';
+    requestOptions.cache = 'no-cache';
 
     return fetch(url, requestOptions).then(handleResponse);
   }
