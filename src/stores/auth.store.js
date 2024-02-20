@@ -26,12 +26,13 @@ export const useAuthStore = defineStore({
         const alertStore = useAlertStore();
         alertStore.error(error);
       }
+    },
+  
+    logout() {
+      this.user = null;
+      localStorage.removeItem('user');
+
+      router.push('/api/auth/signin');
     }
   },
-  logout() {
-    this.user = null;
-    localStorage.removeItem('user');
-
-    router.push('/api/auth/signin');
-  }
 });
