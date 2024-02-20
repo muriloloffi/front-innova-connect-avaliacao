@@ -30,11 +30,11 @@ async function onSubmit(values) {
           <Field class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" type="password" name="password" :class="{ 'is-invalid': errors.password }" />
         </div>
         <div class="m-2">
-          <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600 m-2" :disabled="isSubmitting">
+          <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-400 m-2" :disabled="isSubmitting">
             <span v-show="isSubmitting">Loading...</span>
             Sign in
           </button>
-          <router-link to="signup" class="inline-block align-middle text-center select-none border whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline font-normal text-blue-700 bg-transparent m-2">
+          <router-link to="signup" class="inline-block align-middle text-center select-none border whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline font-normal text-blue-700 hover:bg-gray-200 bg-transparent m-2">
             Sign up
           </router-link>
         </div>
