@@ -13,9 +13,9 @@ export const useAuthStore = defineStore({
     returnUrl: null,
   }),
   actions: {
-    async login(username, password) {
+    async login(email, password) {
       try {
-        const user = await fetchWrapper.post(`${baseUrl}/signin`, { username, password });
+        const user = await fetchWrapper.post(`${baseUrl}/signin`, { email, password });
 
         this.user = user;
 
