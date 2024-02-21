@@ -4,7 +4,7 @@ Application front-end. To check the API and its instructions [click here](https:
 
 ## Installation
 
-Clone the API and Front-end repositories locally, then run `npm install` and `npm run dev` on both.
+Clone the API and Front-end repositories locally, then run `npm install` and `npm run dev` on both. The front-end should be available at http://localhost:5173. Back-end endpoints can be found on http://localhost:8080.
 
 ### Requisitos de negócio
 
