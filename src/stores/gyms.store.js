@@ -12,7 +12,7 @@ export const useGymsStore = defineStore({
   }),
   actions: {
     async getAll() {
-      this.gym = { loading: true };
+      this.gyms = { loading: true };
       try {
         this.gyms = await fetchWrapper.get(`${baseUrl}/gyms`);
       } catch (error) {
