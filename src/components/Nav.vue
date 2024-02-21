@@ -8,6 +8,7 @@ const authStore = useAuthStore();
     <div class="flex flex-wrap grow pl-0 mb-0">
       <router-link to="/" class="inline-block py-2 px-4 no-underline">Home</router-link>
       <router-link to="/users" class="inline-block py-2 px-4 no-underline">Users</router-link>
+      <router-link to="/gyms" class="inline-block py-2 px-4 no-underline">Gyms</router-link>
       <button @click="authStore.logout()" class="inline-block align-middle text-center select-none border whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline font-normal text-blue-700 bg-transparent hover:text-white ml-auto">Logout</button>
     </div>
   </nav>

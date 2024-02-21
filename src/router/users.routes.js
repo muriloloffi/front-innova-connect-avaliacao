@@ -4,6 +4,6 @@ export default {
   path: '/users',
   component: Layout,
   children: [
-    { path: '', redirect: List },
+    { path: '', component: List },
   ],
 };
