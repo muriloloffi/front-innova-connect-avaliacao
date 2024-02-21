@@ -1,5 +1,5 @@
 <script setup>
-import { Form, Field } from 'vee-validate';
+import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as Yup from 'yup';
 
 import { useAuthStore } from '@/stores';
@@ -24,10 +24,12 @@ async function onSubmit(values) {
         <div class="m-4">
           <label for="email">Email</label>
           <Field class ="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" type="text" name="email" :class="{ 'is-invalid': errors.email }" />
+          <ErrorMessage name="email" class="text-red-500 text-xs italic" />
         </div>
         <div class="m-4">
           <label for="password">Password</label>
           <Field class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" type="password" name="password" :class="{ 'is-invalid': errors.password }" />
+          <ErrorMessage name="password" class="text-red-500 text-xs italic" />
         </div>
         <div class="m-2">
           <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-400 m-2" :disabled="isSubmitting">
