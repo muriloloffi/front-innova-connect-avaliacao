@@ -16,7 +16,6 @@
       <tr>
         <th class="w-1/3">Name</th>
         <th class="w-1/3">Email</th>
-        <th class="w-1/3">Role</th>
         <th class="w-1/3">Status</th>
         <th class="w-1/3">Created At</th>
         <th class="w-1/3">Updated At</th>
@@ -28,7 +27,6 @@
         <tr v-for="user in users" :key="user.id">
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.role }}</td>
           <td>{{ user.status }}</td>
           <td>{{ user.created_at }}</td>
           <td>{{ user.updated_at }}</td>
