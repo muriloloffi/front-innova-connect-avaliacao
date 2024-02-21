@@ -4,6 +4,7 @@ import { useAuthStore, useAlertStore } from '@/stores';
 import { Home } from '@/templates';
 import authRoutes from './auth.routes';
 import usersRoutes from './users.routes';
+import gymsRoutes from './gyms.routes';
 import { apiSignInRoute, apiSignUpRoute } from '@/utils/constants';
 
 export const router = createRouter({
@@ -12,6 +13,7 @@ export const router = createRouter({
     { path: '/', component: Home },
     { ...authRoutes },
     { ...usersRoutes },
+    { ...gymsRoutes },
     { path: '/:pathMatch(.*)*', redirect: '/' },
   ],
 });

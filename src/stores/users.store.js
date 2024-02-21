@@ -27,7 +27,7 @@ export const useUsersStore = defineStore({
     async getById(id) {
       this.user = { loading: true };
       try {
-        this.user = await fetchWrapper.get(`${baseUrl}/users/${id}`);
+        this.user = await fetchWrapper.get(`${baseUrl}/user/${id}`);
       } catch (error) {
         this.user = { error };
       }
