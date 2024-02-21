@@ -31,7 +31,7 @@
           <td>{{ user.created_at }}</td>
           <td>{{ user.updated_at }}</td>
           <td style="white-space: nowrap">
-            <router-link :to="`/users/update/${user.id}`" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded px-3 leading-normal no-underline py-1 text-xs  bg-blue-600 text-white hover:bg-blue-600 mr-1">Edit</router-link>
+            <router-link :to="`/user/update/${user.id}`" class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded px-3 leading-normal no-underline py-1 text-xs  bg-blue-600 text-white hover:bg-blue-600 mr-1">Edit</router-link>
           </td>
         </tr>
       </template>
