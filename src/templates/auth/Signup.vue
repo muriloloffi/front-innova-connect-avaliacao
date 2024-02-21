@@ -1,10 +1,16 @@
 <script setup>
-import { Form, Field } from 'vee-validate';
+import { Form, Field, ErrorMessage } from 'vee-validate';
 import * as Yup from 'yup';
 
 import { useUsersStore, useAlertStore } from '@/stores';
 import { router } from '@/router';
 import { apiSignInRoute } from '@/utils/constants';
+
+const formFields = [
+  { name: 'name', label: 'Name', type: 'text' },
+  { name: 'email', label: 'Email', type: 'email' },
+  { name: 'password', label: 'Password', type: 'password' },
+];
 
 const schema = Yup.object({
   name: Yup.string().required(),
@@ -13,6 +19,7 @@ const schema = Yup.object({
 });
 
 async function onSubmit(values) {
+  console.log(schema);
   const usersStore = useUsersStore();
   const alertStore = useAlertStore();
   try {
@@ -30,28 +37,18 @@ async function onSubmit(values) {
     <h4 class="py-3 px-6 mb-0 bg-gray-200 border-b-1 border-gray-300 text-gray-900">Sign up</h4>
     <div class="flex-auto p-6">
       <Form @submit="onSubmit" :validation-schema="schema" v-slot="{ errors, isSubmitting }">
-        <div class="mb-4">
-          <label for="name">Name</label>
-          <Field type="text" name="name" :class="{ 'is-invalid': errors.name }" />
-          <div class="hidden mt-1 text-sm text-red" v-show="errors.name">{{ errors.name }}</div>
+        <div v-for="field in formFields" class="m-4" :key="field.name">
+          <label :for="field.name">{{ field.label }}</label>
+          <Field class="block appearance-none w-full py-1 px-2 mb-1 text-base leading-normal bg-white text-gray-800 border border-gray-200 rounded" :type="field.type" :name="field.name" :class="{ 'is-invalid': errors[field.name] }" />
+          <ErrorMessage :name="field.name" class="text-red-500 text-xs italic" />
         </div>
-        <div class="mb-4">
-          <label for="email">Email</label>
-          <Field type="text" name="email" :class="{ 'is-invalid': errors.email }" />
-          <div class="hidden mt-1 text-sm text-red" v-show="errors.email">{{ errors.email }}</div>
-        </div>
-        <div class="mb-4">
-          <label for="password">Password</label>
-          <Field type="password" name="password" :class="{ 'is-invalid': errors.password }" />
-          <div class="hidden mt-1 text-sm text-red" v-show="errors.password">{{ errors.password }}</div>
-        </div>
-        <div class="mb-4">
-          <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-600" :disabled="isSubmitting">
+        <div class="m-2">
+          <button class="inline-block align-middle text-center select-none border font-normal whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline bg-blue-600 text-white hover:bg-blue-400 m-2" :disabled="isSubmitting">
             <span v-show="isSubmitting">Loading...</span>
             Sign up
           </button>
-          <router-link to="signin" class="inline-block align-middle text-center select-none border whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline font-normal text-blue-700 bg-transparent">
-            Sign in
+          <router-link to="signin" class="inline-block align-middle text-center select-none border whitespace-no-wrap rounded py-1 px-3 leading-normal no-underline font-normal text-blue-700 hover:bg-gray-200 bg-transparent m-2">
+            Back to sign in
           </router-link>
         </div>
       </Form>
