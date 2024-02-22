@@ -8,18 +8,18 @@ Clone the API and Front-end repositories locally, then run `npm install` and `np
 
 ### Requisitos de negócio
 
-* (front) Deve ser possível se cadastrar (Nome, E-mail e Senha);
-* (front) Deve ser possível se autenticar (E-mail e Senha);
+* <ins>(front) Deve ser possível se cadastrar (Nome, E-mail e Senha);✅<ins>
+* <ins>(front) Deve ser possível se autenticar (E-mail e Senha);✅<ins>
 * (front) Deve ser possível cadastrar uma academia (Nome, Descrição, Telefone, Latitude e longitude);
-* (front) Deve ser possível o usuário realizar check-in em uma academia;
+* <ins>(front) Deve ser possível o usuário realizar check-in em uma academia;✅<ins>
 * (front) Deve ser possível obter o perfil de um usuário logado;
 * (front) Deve ser possível o usuário obter o seu histórico de check-ins;
 * (front) Deve ser possível o usuário buscar academias pelo nome;
 
 ### RNs (Regras de negócio)
 
-* O usuário não deve poder se cadastrar com um e-mail duplicado;
-* O usuário não pode fazer 2 check-ins no mesmo dia;
+* <ins>O usuário não deve poder se cadastrar com um e-mail duplicado;✅<ins>
+* <ins>O usuário não pode fazer 2 check-ins no mesmo dia;✅<ins>
 * A academia só pode ser cadastrada por administradores;
 
 ### RNFs (Requisitos não-funcionais)
