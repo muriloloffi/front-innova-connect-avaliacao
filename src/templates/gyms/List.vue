@@ -1,13 +1,29 @@
 <script setup>
   import { storeToRefs } from 'pinia';
 
-  import { useGymsStore } from '@/stores';
+  import { useAuthStore, useGymsStore } from '@/stores';
+  import { fetchWrapper } from '@/utils';
+  import { useAlertStore } from '@/stores';
 
+
+  const authStore = useAuthStore();
   const gymsStore = useGymsStore();
-  const { gyms } = storeToRefs(gymsStore);
 
-  // usersStore.getAll();
+  const { gyms } = storeToRefs(gymsStore);
+  const baseUrl = `${import.meta.env.VITE_API_URL}`;
+
   gymsStore.getAll();
+
+  async function checkin(userId, gymId) {
+    const alertStore = useAlertStore();
+    try {
+      await fetchWrapper.post(`${baseUrl}/user/${userId}/checkin/${gymId}`);
+      alertStore.success('Checkin successful!');
+    } catch (error) {
+      const alertStore = useAlertStore();
+      alertStore.error(error);
+    }
+  }
 </script>
 
 <template>
@@ -31,7 +47,7 @@
             <td>{{ gym.phone }}</td>
             <td>{{ gym.coordinates }}</td>
             <td class="whitespace-nowrap flex justify-center">
-              <router-link :to="`/gym/update/${gym.id}`" class="flex justify-center align-middle text-center select-none border font-normal whitespace-no-wrap rounded px-3 leading-normal no-underline py-1 text-xs bg-blue-600 text-white hover:bg-blue-400">Edit</router-link>
+              <button @click="checkin(authStore.user.id, gym.id)" class="flex justify-center align-middle text-center select-none border font-normal whitespace-no-wrap rounded px-3 leading-normal no-underline py-1 text-xs bg-blue-600 text-white hover:bg-blue-400">Checkin</button>
             </td>
           </tr>
         </template>
