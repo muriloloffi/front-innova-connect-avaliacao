@@ -4,6 +4,7 @@
   import { useAuthStore, useGymsStore } from '@/stores';
   import { fetchWrapper } from '@/utils';
   import { useAlertStore } from '@/stores';
+  import { GymCard } from '@/components';
 
 
   const authStore = useAuthStore();
@@ -28,36 +29,16 @@
 
 <template>
   <h1 class="text-3xl mb-4">Gyms</h1>
-  <div class="shadow rounded border-b border-gray-200">
-    <table class="w-full max-w-full mb-4 bg-transparent table-auto">
-      <thead class="bg-gray-600 text-white">
-        <tr>
-          <th class="text-left">Name</th>
-          <th class="text-left">Description</th>
-          <th class="text-left">Phone</th>
-          <th class="text-left">Location</th>
-          <th class="text-center">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <template v-if="gyms.length">
-          <tr v-for="gym in gyms" class="odd:bg-white" :key="gym.id">
-            <td>{{ gym.name }}</td>
-            <td>{{ gym.description }}</td>
-            <td>{{ gym.phone }}</td>
-            <td>{{ gym.coordinates }}</td>
-            <td class="whitespace-nowrap flex justify-center">
-              <button @click="checkin(authStore.user.id, gym.id)" class="flex justify-center align-middle text-center select-none border font-normal whitespace-no-wrap rounded px-3 leading-normal no-underline py-1 text-xs bg-blue-600 text-white hover:bg-blue-400">Checkin</button>
-            </td>
-          </tr>
-        </template>
-        <tr v-if="gyms.loading">
-          <td colspan="4" class="text-center">Loading...</td>
-        </tr>
-        <tr v-if="gyms.error">
-          <td colspan="4" class="text-center">{{ gyms.error }}</td>
-        </tr>
-      </tbody>      
-    </table>
+  <template v-if="gyms.length">
+    <div v-for="gym in gyms" :key="gym.id">
+      <GymCard :gym="gym" :userId="authStore.user.id" @checkin="checkin(authStore.user.id, gym.id)"/>
+    </div>
+  </template>
+      
+  <div v-if="gyms.loading">
+    <span class="text-center">Loading...</span>
+  </div>
+  <div v-if="gyms.error">
+    <span colspan="4" class="text-center">{{ gyms.error }}</span>
   </div>
 </template>

@@ -19,7 +19,6 @@ const schema = Yup.object({
 });
 
 async function onSubmit(values) {
-  console.log(schema);
   const usersStore = useUsersStore();
   const alertStore = useAlertStore();
   try {
